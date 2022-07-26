@@ -5,15 +5,15 @@ import { initReactI18next } from "react-i18next";
 export const translations = {
   en: {
     translation: {
-      placeholder: "Country, territory...",
+      placeholder: "Suburb...",
       guess: "Guess",
       share: "Share",
       showOnGoogleMaps: "👀 on Google Maps",
       showOnWikipedia: "📚 on Wikipedia",
       welldone: "Well done!",
-      unknownCountry: "Unknown country!",
+      unknownSuburb: "Unknown suburb!",
       copy: "Copied results to clipboard",
-      showCountry: "🗺️ Show map!",
+      showSuburb: "🗺️ Show map!",
       cancelRotation: "🌀 Cancel rotation",
       settings: {
         title: "Settings",
@@ -22,8 +22,8 @@ export const translations = {
         language: "Language",
         difficultyModifiers: "Difficulty modifiers",
         startingNextDay: "Starting the next day!",
-        noImageMode: "Hide country image for more of a challenge.",
-        rotationMode: "Randomly rotate country image.",
+        noImageMode: "Hide suburb image for more of a challenge.",
+        rotationMode: "Randomly rotate suburb image.",
         updateNotificationDisabled: "Disable update notifications.",
         showScale: "Replace proximity percent by size percent.",
       },
@@ -37,7 +37,7 @@ export const translations = {
         guessDistribution: "Guess distribution:",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "App Install:",
         description: "Add Worldle to Home Screen to play it easily!",
         instructionTitle: "Instructions:",
@@ -75,9 +75,9 @@ export const translations = {
       showOnGoogleMaps: "👀 sur Google Maps",
       showOnWikipedia: "📚 sur Wikipedia",
       welldone: "Bien joué !",
-      unknownCountry: "Pays inconnu !",
+      unknownSuburb: "Pays inconnu !",
       copy: "Résultat copié !",
-      showCountry: "🗺️ Afficher la carte !",
+      showSuburb: "🗺️ Afficher la carte !",
       cancelRotation: "🌀 Annule la rotation",
       settings: {
         title: "Paramètres",
@@ -103,7 +103,7 @@ export const translations = {
         guessDistribution: "Répartitions des victoires:",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "Installer l'app:",
         description:
           "Ajouter Worldle sur l'écran d'accueil pour le retrouver plus facilement !",
@@ -139,9 +139,9 @@ export const translations = {
       share: "Compartir",
       showOnGoogleMaps: "👀 en Google Maps",
       welldone: "Bien hecho !",
-      unknownCountry: "País desconocido !",
+      unknownSuburb: "País desconocido !",
       copy: "Resultado copiado !",
-      showCountry: "🗺️ mostrar mapa !",
+      showSuburb: "🗺️ mostrar mapa !",
       cancelRotation: "🌀 Anular la rotacíon",
       settings: {
         title: "Parámetros",
@@ -172,9 +172,9 @@ export const translations = {
       showOnGoogleMaps: "👀 Google Maps-en",
       showOnWikipedia: "📚 Megtekintés Wikipédián",
       welldone: "Ongi egina !",
-      unknownCountry: "Estatu ezezaguna !",
+      unknownSuburb: "Estatu ezezaguna !",
       copy: "Emaitzak arbelean kopiatuta !",
-      showCountry: "🗺️ Erakutsi mapan !",
+      showSuburb: "🗺️ Erakutsi mapan !",
       cancelRotation: "🌀 Ezeztatu errotazioa",
       settings: {
         title: "Aukerak",
@@ -204,10 +204,10 @@ export const translations = {
       share: "Megosztás",
       showOnGoogleMaps: "👀 Google Maps-en",
       welldone: "Szép munka!",
-      unknownCountry: "Ismeretlen ország!",
-      countryDuplication: "Már tippelted ezt az országot!",
+      unknownSuburb: "Ismeretlen ország!",
+      suburbDuplication: "Már tippelted ezt az országot!",
       copy: "Eredmény kimásolva vágólapra",
-      showCountry: "🗺️ Mutasd a térképet!",
+      showSuburb: "🗺️ Mutasd a térképet!",
       cancelRotation: "🌀 Elforgatás kikapcsolása",
       settings: {
         title: "Beállítások",
@@ -228,7 +228,7 @@ export const translations = {
         guessDistribution: "Találatok eloszlása:",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "App Letöltése:",
         description:
           "Add hozzá a Worldle a Kezdőképernyőhöz, hogy egyszerűbben játszhass!",
@@ -261,9 +261,9 @@ export const translations = {
       showOnGoogleMaps: "👀 op Google Maps",
       showOnWikipedia: "📚 op Wikipedia",
       welldone: "Goed gedaan!",
-      unknownCountry: "Onbekend land!",
+      unknownSuburb: "Onbekend land!",
       copy: "Resultaten zijn naar het klembord gekopiëerd",
-      showCountry: "🗺️ Toon kaart!",
+      showSuburb: "🗺️ Toon kaart!",
       cancelRotation: "🌀 Stop met draaien",
       settings: {
         title: "Instellingen",
@@ -284,7 +284,7 @@ export const translations = {
         guessDistribution: "Kansverspreiding:",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "Appinstallatie:",
         description:
           "Voeg Worldle toe aan je beginscherm om het makkelijk te spelen!",
@@ -317,9 +317,9 @@ export const translations = {
       showOnGoogleMaps: "👀 w Google Maps",
       showOnWikipedia: "📚 na Wikipedii",
       welldone: "Gratulacje!",
-      unknownCountry: "Nieznane państwo!",
+      unknownSuburb: "Nieznane państwo!",
       copy: "Skopiowano wyniki do schowka",
-      showCountry: "🗺️ Pokaż mapę!",
+      showSuburb: "🗺️ Pokaż mapę!",
       cancelRotation: "🌀 Anuluj obrót",
       settings: {
         title: "Ustawienia",
@@ -342,7 +342,7 @@ export const translations = {
         guessDistribution: "Podział odgadnięć:",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "Instalacja:",
         description: "Dodaj Worldle do ekranu głównego żeby grać łatwiej!",
         instructionTitle: "Instrukcja:",
@@ -380,9 +380,9 @@ export const translations = {
       showOnGoogleMaps: "👀 no Google Maps",
       showOnWikipedia: "📚 no Wikipedia",
       welldone: "Parabéns!",
-      unknownCountry: "País desconhecido!",
+      unknownSuburb: "País desconhecido!",
       copy: "Resultados copiados",
-      showCountry: "🗺️ Mostrar mapa!",
+      showSuburb: "🗺️ Mostrar mapa!",
       cancelRotation: "🌀 Cancelar rotação",
       settings: {
         title: "Configurações",
@@ -407,7 +407,7 @@ export const translations = {
         guessDistribution: "Distribuição de palpites:",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "Instalar App:",
         description:
           "Adicione Worldle a sua página inicial para jogar mais facilmente!",
@@ -446,9 +446,9 @@ export const translations = {
       showOnGoogleMaps: "👀 auf Google Maps",
       showOnWikipedia: "📚 auf Wikipedia",
       welldone: "Sehr gut!",
-      unknownCountry: "Unbekanntes Land!",
+      unknownSuburb: "Unbekanntes Land!",
       copy: "Ergebnis in Zwischenablage kopiert!",
-      showCountry: "🗺️ Karte zeigen!",
+      showSuburb: "🗺️ Karte zeigen!",
       cancelRotation: "🌀 Rotation abbrechen",
       settings: {
         title: "Einstellungen",
@@ -472,7 +472,7 @@ export const translations = {
         guessDistribution: "Verteilung der Versuche:",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "App Installieren:",
         description:
           "Worldle zum Startbildschirm hinzufügen um einfacher zu spielen!",
@@ -511,9 +511,9 @@ export const translations = {
       showOnGoogleMaps: "👀 Google マップで見る",
       showOnWikipedia: "📚 Wikipediaで見る",
       welldone: "正解です！",
-      unknownCountry: "その国名、地域名は無効です",
+      unknownSuburb: "その国名、地域名は無効です",
       copy: "結果をクリップボードにコピーしました",
-      showCountry: "🗺️ 地図を表示する",
+      showSuburb: "🗺️ 地図を表示する",
       cancelRotation: "🌀 地図の回転を元に戻す",
       settings: {
         title: "設定",
@@ -537,7 +537,7 @@ export const translations = {
         guessDistribution: "的中までの回答数",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "アプリをインストール",
         description: "ホーム画面にWorldleを追加してプレイしやすくしましょう！",
         instructionTitle: "やり方",
@@ -575,9 +575,9 @@ export const translations = {
       showOnGoogleMaps: "👀 nant’à Google Maps",
       showOnWikipedia: "📚 nant’à Wikipedia",
       welldone: "Bellu colpu !",
-      unknownCountry: "Paese scunnisciutu !",
+      unknownSuburb: "Paese scunnisciutu !",
       copy: "Risultati cupiati in u preme’papei",
-      showCountry: "🗺️ Affissà a cartugrafia !",
+      showSuburb: "🗺️ Affissà a cartugrafia !",
       cancelRotation: "🌀 Annullà a rutazione",
       settings: {
         title: "Preferenze",
@@ -603,7 +603,7 @@ export const translations = {
         guessDistribution: "Classificazione di e vittorie",
       },
       install: {
-        title: "Worldle",
+        title: "Melble",
         descritpionTitle: "Installà l’appiecazione :",
         description:
           "Aghjunghje Worldle à u screnu d’accolta per ghjucà più prestu !",

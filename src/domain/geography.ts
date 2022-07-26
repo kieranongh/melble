@@ -1,6 +1,6 @@
 import { Guess } from "./guess";
 
-const MAX_DISTANCE_ON_EARTH = 20_000_000;
+const MAX_DISTANCE_IN_MELBOURNE = 70_000;
 
 export type Direction =
   | "S"
@@ -44,8 +44,9 @@ export function getDirectionEmoji(guess: Guess) {
 }
 
 export function computeProximityPercent(distance: number): number {
-  const proximity = Math.max(MAX_DISTANCE_ON_EARTH - distance, 0);
-  return Math.floor((proximity / MAX_DISTANCE_ON_EARTH) * 100);
+  console.log({ distance });
+  const proximity = Math.max(MAX_DISTANCE_IN_MELBOURNE - distance, 0);
+  return Math.floor((proximity / MAX_DISTANCE_IN_MELBOURNE) * 100);
 }
 
 export function generateSquareCharacters(

@@ -1,7 +1,7 @@
 import { Guesses } from "../Guesses";
 import { Panel } from "./Panel";
 import React from "react";
-import { Worldle } from "../Worldle";
+import { Melble } from "../Melble";
 import { formatDistance } from "../../domain/geography";
 import { SettingsData } from "../../hooks/useSettings";
 import { Twemoji } from "@teuteuf/react-emoji-render";
@@ -17,9 +17,12 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
     <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the <Worldle /> in 6 guesses.
+          Guess the <Melble /> in 6 guesses.
         </div>
-        <div>Each guess must be a valid country, territory, ...</div>
+        <div>
+          Each guess must be a valid suburb of Melbourne (not including
+          localities)
+        </div>
         <div>
           After each guess, you will have the distance, the direction and the
           proximity from your guess to the target location.
@@ -32,9 +35,9 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Chile",
+                name: "Brunswick",
                 direction: "NE",
-                distance: 13_557_000,
+                distance: 13_557,
               },
             ]}
             settingsData={settingsData}
@@ -86,26 +89,19 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        A new <Worldle /> will be available every day!
+        A new <Melble /> will be available every day!
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">Any question or suggestion?</div>
-        <div>
-          Check the{" "}
-          <a
-            className="underline"
-            href="https://worldle.notion.site/Worldle-b84ab0f002e34866980a4d47cf9291b7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Worldle FAQ
-          </a>
-          !
-        </div>
-      </div>
-      <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Worldle /> has been <span className="font-bold">heavily</span> inspired
-        by{" "}
+        <Melble /> is a fork of{" "}
+        <a
+          className="underline"
+          href="https://worldle.teuteuf.fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Worldle
+        </a>
+        , which was <span className="font-bold">heavily</span> inspired by{" "}
         <a
           className="underline"
           href="https://www.powerlanguage.co.uk/wordle/"
@@ -127,7 +123,16 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
       </div>
       <div className="space-y-3 text-justify pb-3">
         <div>
-          Made by{" "}
+          Melble variant made by{" "}
+          <a
+            className="underline"
+            href="https://twitter.com/azz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @azz
+          </a>
+          . Originally made by{" "}
           <a
             className="underline"
             href="https://twitter.com/teuteuf"
@@ -139,27 +144,13 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           - (
           <a
             className="underline"
-            href="https://github.com/teuteuf/worldle/"
+            href="https://github.com/azz/melble/"
             target="_blank"
             rel="noopener noreferrer"
           >
             source code
           </a>
           )
-        </div>
-        <div>
-          Want to support?{" "}
-          <a
-            className="underline"
-            href="https://www.ko-fi.com/teuteuf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Twemoji
-              text="Buy me a coffee! ☕"
-              options={{ className: "inline-block" }}
-            />
-          </a>
         </div>
       </div>
     </Panel>

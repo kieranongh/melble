@@ -9,50 +9,46 @@ import React, { useCallback, useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { SettingsData } from "../hooks/useSettings";
 import { Twemoji } from "@teuteuf/react-emoji-render";
-import {
-  Country,
-  getCountryName,
-  sanitizeCountryName,
-} from "../domain/countries";
-import { areas } from "../domain/countries.area";
-import { countries } from "../domain/countries.position";
+import { Suburb, getSuburbName, sanitizeSuburbName } from "../domain/suburbs";
+import { areas } from "../domain/suburbs.area";
+import { suburbs } from "../domain/suburbs.position";
 import { useTranslation } from "react-i18next";
 
 const SQUARE_ANIMATION_LENGTH = 250;
 type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
 
 interface GuessRowProps {
-  targetCountry?: Country;
+  targetSuburb?: Suburb;
   guess?: Guess;
   settingsData: SettingsData;
-  countryInputRef?: React.RefObject<HTMLInputElement>;
+  suburbInputRef?: React.RefObject<HTMLInputElement>;
 }
 
 export function GuessRow({
-  targetCountry,
+  targetSuburb,
   guess,
   settingsData,
-  countryInputRef,
+  suburbInputRef,
 }: GuessRowProps) {
   const { i18n } = useTranslation();
   const { distanceUnit, theme } = settingsData;
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
   const squares = generateSquareCharacters(proximity, theme);
 
-  const guessedCountry =
+  const guessedSuburb =
     guess &&
-    countries.find(
-      (country) =>
-        sanitizeCountryName(getCountryName(i18n.resolvedLanguage, country)) ===
-        sanitizeCountryName(guess.name)
+    suburbs.find(
+      (suburb) =>
+        sanitizeSuburbName(getSuburbName(i18n.resolvedLanguage, suburb)) ===
+        sanitizeSuburbName(guess.name)
     );
 
   const sizePercent =
-    targetCountry &&
-    guessedCountry &&
+    targetSuburb &&
+    guessedSuburb &&
     Math.min(
       999,
-      Math.round((areas[targetCountry.code] / areas[guessedCountry.code]) * 100)
+      Math.round((areas[targetSuburb.code] / areas[guessedSuburb.code]) * 100)
     );
 
   const percentToDisplay =
@@ -79,10 +75,10 @@ export function GuessRow({
   }, [guess]);
 
   const handleClickOnEmptyRow = useCallback(() => {
-    if (countryInputRef?.current != null) {
-      countryInputRef?.current.focus();
+    if (suburbInputRef?.current != null) {
+      suburbInputRef?.current.focus();
     }
-  }, [countryInputRef]);
+  }, [suburbInputRef]);
 
   switch (animationState) {
     case "NOT_STARTED":

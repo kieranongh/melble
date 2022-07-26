@@ -2,20 +2,20 @@ import { t } from "i18next";
 import React, { useState } from "react";
 import Autosuggest from "react-autosuggest";
 import { useTranslation } from "react-i18next";
-import { getCountryName, sanitizeCountryName } from "../domain/countries";
-import { countries } from "../domain/countries.position";
+import { getSuburbName, sanitizeSuburbName } from "../domain/suburbs";
+import { suburbs } from "../domain/suburbs.position";
 
-interface CountryInputProps {
+interface SuburbInputProps {
   inputRef: React.RefObject<HTMLInputElement>;
   currentGuess: string;
   setCurrentGuess: (guess: string) => void;
 }
 
-export function CountryInput({
+export function SuburbInput({
   inputRef,
   currentGuess,
   setCurrentGuess,
-}: CountryInputProps) {
+}: SuburbInputProps) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
   const { i18n } = useTranslation();
@@ -28,12 +28,10 @@ export function CountryInput({
       suggestions={suggestions}
       onSuggestionsFetchRequested={({ value }) =>
         setSuggestions(
-          countries
-            .map((c) => getCountryName(i18n.resolvedLanguage, c).toUpperCase())
-            .filter((countryName) =>
-              sanitizeCountryName(countryName).includes(
-                sanitizeCountryName(value)
-              )
+          suburbs
+            .map((c) => getSuburbName(i18n.resolvedLanguage, c).toUpperCase())
+            .filter((suburbName) =>
+              sanitizeSuburbName(suburbName).includes(sanitizeSuburbName(value))
             )
             .sort()
         )

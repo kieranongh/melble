@@ -2,33 +2,33 @@ import { Guess } from "../domain/guess";
 import { GuessRow } from "./GuessRow";
 import React from "react";
 import { SettingsData } from "../hooks/useSettings";
-import { Country } from "../domain/countries";
+import { Suburb } from "../domain/suburbs";
 
 interface GuessesProps {
-  targetCountry?: Country;
+  targetSuburb?: Suburb;
   rowCount: number;
   guesses: Guess[];
   settingsData: SettingsData;
-  countryInputRef?: React.RefObject<HTMLInputElement>;
+  suburbInputRef?: React.RefObject<HTMLInputElement>;
 }
 
 export function Guesses({
-  targetCountry,
+  targetSuburb,
   rowCount,
   guesses,
   settingsData,
-  countryInputRef,
+  suburbInputRef,
 }: GuessesProps) {
   return (
     <div>
       <div className="grid grid-cols-7 gap-1 text-center">
         {Array.from(Array(rowCount).keys()).map((index) => (
           <GuessRow
-            targetCountry={targetCountry}
+            targetSuburb={targetSuburb}
             key={index}
             guess={guesses[index]}
             settingsData={settingsData}
-            countryInputRef={countryInputRef}
+            suburbInputRef={suburbInputRef}
           />
         ))}
       </div>

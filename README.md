@@ -1,6 +1,6 @@
-# WOR**L**DLE
+# ME**L**B**L**E
 
-Play this geographical wordle here: https://worldle.teuteuf.fr !
+Play this geographical Melble here: https://melble.netlify.com!
 
 ## Contributions & PR
 
@@ -17,8 +17,7 @@ Otherwise, feel free to fork the project, customize it and play with it on your 
 ## Resources used:
 
 - Countries with long/lat => https://developers.google.com/public-data/docs/canonical/countries_csv
-- Country area => https://github.com/samayo/country-json/blob/master/src/country-by-surface-area.json
-- French country names => https://fr.wikipedia.org/wiki/ISO_3166
+- Country area => https://github.com/samayo/suburb-json/blob/master/src/country-by-surface-area.json
 - Country images => https://github.com/djaiss/mapsicon
 - Fixed images => http://www.amcharts.com/svg-maps/ & Wikipedia
 - Emojis & World icon => https://github.com/twitter/twemoji

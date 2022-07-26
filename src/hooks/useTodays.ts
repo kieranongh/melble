@@ -2,16 +2,16 @@ import { DateTime } from "luxon";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import seedrandom from "seedrandom";
 import {
-  bigEnoughCountriesWithImage,
-  countriesWithImage,
-  Country,
-  smallCountryLimit,
-} from "../domain/countries";
-import { areas } from "../domain/countries.area";
-import { CountryCode } from "../domain/countries.position";
+  bigEnoughSuburbsWithImage,
+  suburbsWithImage,
+  Suburb,
+  smallSuburbLimit,
+} from "../domain/suburbs";
+import { areas } from "../domain/suburbs.area";
+import { SuburbCode } from "../domain/suburbs.position";
 import { Guess, loadAllGuesses, saveGuesses } from "../domain/guess";
 
-const forcedCountries: Record<string, CountryCode> = {
+const forcedSuburbs: Record<string, SuburbCode> = {
   "2022-02-02": "TD",
   "2022-02-03": "PY",
   "2022-03-21": "HM",
@@ -129,7 +129,7 @@ export function getDayString(shiftDayCount?: number) {
 
 export function useTodays(dayString: string): [
   {
-    country?: Country;
+    suburb?: Suburb;
     guesses: Guess[];
   },
   (guess: Guess) => void,
@@ -137,7 +137,7 @@ export function useTodays(dayString: string): [
   number
 ] {
   const [todays, setTodays] = useState<{
-    country?: Country;
+    suburb?: Suburb;
     guesses: Guess[];
   }>({ guesses: [] });
 
@@ -149,7 +149,7 @@ export function useTodays(dayString: string): [
 
       const newGuesses = [...todays.guesses, newGuess];
 
-      setTodays((prev) => ({ country: prev.country, guesses: newGuesses }));
+      setTodays((prev) => ({ suburb: prev.suburb, guesses: newGuesses }));
       saveGuesses(dayString, newGuesses);
     },
     [dayString, todays]
@@ -157,9 +157,9 @@ export function useTodays(dayString: string): [
 
   useEffect(() => {
     const guesses = loadAllGuesses()[dayString] ?? [];
-    const country = getCountry(dayString);
+    const suburb = getSuburb(dayString);
 
-    setTodays({ country, guesses });
+    setTodays({ suburb, guesses });
   }, [dayString]);
 
   const randomAngle = useMemo(
@@ -176,69 +176,65 @@ export function useTodays(dayString: string): [
   return [todays, addGuess, randomAngle, imageScale];
 }
 
-function getCountry(dayString: string) {
+function getSuburb(dayString: string) {
   const currentDayDate = DateTime.fromFormat(dayString, "yyyy-MM-dd");
   let pickingDate = DateTime.fromFormat("2022-03-21", "yyyy-MM-dd");
-  let smallCountryCooldown = 0;
-  let pickedCountry: Country | null = null;
+  let smallSuburbCooldown = 0;
+  let pickedSuburb: Suburb | null = null;
 
   const lastPickDates: Record<string, DateTime> = {};
 
   do {
-    smallCountryCooldown--;
+    smallSuburbCooldown--;
 
     const pickingDateString = pickingDate.toFormat("yyyy-MM-dd");
 
-    const forcedCountryCode = forcedCountries[dayString];
-    const forcedCountry =
-      forcedCountryCode != null
-        ? countriesWithImage.find(
-            (country) => country.code === forcedCountryCode
-          )
+    const forcedSuburbCode = forcedSuburbs[dayString];
+    const forcedSuburb =
+      forcedSuburbCode != null
+        ? suburbsWithImage.find((suburb) => suburb.code === forcedSuburbCode)
         : undefined;
 
-    const countrySelection =
-      smallCountryCooldown < 0
-        ? countriesWithImage
-        : bigEnoughCountriesWithImage;
+    const suburbSelection =
+      smallSuburbCooldown < 0 ? suburbsWithImage : bigEnoughSuburbsWithImage;
 
-    if (forcedCountry != null) {
-      pickedCountry = forcedCountry;
+    if (forcedSuburb != null) {
+      pickedSuburb = forcedSuburb;
     } else {
-      let countryIndex = Math.floor(
-        seedrandom.alea(pickingDateString)() * countrySelection.length
+      let suburbIndex = Math.floor(
+        seedrandom.alea(pickingDateString)() * suburbSelection.length
       );
-      pickedCountry = countrySelection[countryIndex];
+      pickedSuburb = suburbSelection[suburbIndex];
 
       if (pickingDate >= noRepeatStartDate) {
-        while (isARepeat(pickedCountry, lastPickDates, pickingDate)) {
-          countryIndex = (countryIndex + 1) % countrySelection.length;
-          pickedCountry = countrySelection[countryIndex];
+        while (isARepeat(pickedSuburb, lastPickDates, pickingDate)) {
+          suburbIndex = (suburbIndex + 1) % suburbSelection.length;
+          pickedSuburb = suburbSelection[suburbIndex];
         }
       }
     }
 
-    if (areas[pickedCountry.code] < smallCountryLimit) {
-      smallCountryCooldown = 7;
+    if (areas[pickedSuburb.code] < smallSuburbLimit) {
+      smallSuburbCooldown = 7;
     }
 
-    lastPickDates[pickedCountry.code] = pickingDate;
+    lastPickDates[pickedSuburb.code] = pickingDate;
     pickingDate = pickingDate.plus({ day: 1 });
   } while (pickingDate <= currentDayDate);
 
-  return pickedCountry;
+  return pickedSuburb;
 }
 
 function isARepeat(
-  pickedCountry: Country | null,
+  pickedSuburb: Suburb | null,
   lastPickDates: Record<string, DateTime>,
   pickingDate: DateTime
 ) {
-  if (pickedCountry == null || lastPickDates[pickedCountry.code] == null) {
+  if (pickedSuburb == null || lastPickDates[pickedSuburb.code] == null) {
     return false;
   }
   const daysSinceLastPick = pickingDate.diff(
-    lastPickDates[pickedCountry.code],
+    lastPickDates[pickedSuburb.code],
     "day"
   ).days;
 
