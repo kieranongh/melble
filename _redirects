@@ -1,1 +1,1 @@
-https://melble.netlify.app/ https://melble.azzola.dev/ 301!
+https://melble.netlify.app/* https://melble.azzola.dev/:splat 301!
