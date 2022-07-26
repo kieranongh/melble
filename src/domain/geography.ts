@@ -44,7 +44,6 @@ export function getDirectionEmoji(guess: Guess) {
 }
 
 export function computeProximityPercent(distance: number): number {
-  console.log({ distance });
   const proximity = Math.max(MAX_DISTANCE_IN_MELBOURNE - distance, 0);
   return Math.floor((proximity / MAX_DISTANCE_IN_MELBOURNE) * 100);
 }

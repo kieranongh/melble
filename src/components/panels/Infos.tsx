@@ -35,19 +35,18 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Brunswick",
-                direction: "NE",
-                distance: 13_557,
+                name: "Melbourne",
+                direction: "E",
+                distance: 8_000,
               },
             ]}
             settingsData={settingsData}
           />
           <div className="my-2">
-            Your guess <span className="uppercase font-bold">Chile</span> is{" "}
-            {formatDistance(13557000, settingsData.distanceUnit)} away from the
-            target location, the target location is in the North-East direction
-            and you have a only 32% of proximity because it&apos;s quite far
-            away!
+            Your guess <span className="uppercase font-bold">Melbourne</span> is{" "}
+            {formatDistance(8_000, settingsData.distanceUnit)} away from the
+            target location, the target location is in the Eastern direction and
+            you have 88% of proximity because it&apos;s relatively close.
           </div>
         </div>
         <div>
@@ -55,18 +54,18 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Finland",
-                direction: "SE",
-                distance: 3_206_000,
+                name: "Malvern",
+                direction: "E",
+                distance: 4_000,
               },
             ]}
             settingsData={settingsData}
           />
           <div className="my-2">
             Your second guess{" "}
-            <span className="uppercase font-bold">Finland</span> is getting
-            closer! {formatDistance(3206000, settingsData.distanceUnit)} away,
-            South-East direction and 84%!
+            <span className="uppercase font-bold">Malvern</span> is getting
+            closer! {formatDistance(4_000, settingsData.distanceUnit)} away,
+            Easterly direction and 94%!
           </div>
         </div>
         <div>
@@ -74,7 +73,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Lebanon",
+                name: "Glen Iris",
                 direction: "N",
                 distance: 0,
               },
@@ -82,7 +81,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Next guess, <span className="uppercase font-bold">Lebanon</span>,
+            Next guess, <span className="uppercase font-bold">Glen Iris</span>,
             it&apos;s the location to guess! Congrats!{" "}
             <Twemoji text="🎉" options={{ className: "inline-block" }} />
           </div>

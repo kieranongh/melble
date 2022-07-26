@@ -3196,4 +3196,4 @@ export const suburbsAndTowns = [
   { "code": "3995", "name": "Woolamai", "latitude": -38.530, "longitude": 145.450 },
   { "code": "3996", "name": "Inverloch", "latitude": -38.630, "longitude": 145.730 },
   { "code": "3996", "name": "Pound Creek", "latitude": -38.630, "longitude": 145.730 },
-]
+];

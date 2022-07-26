@@ -1,3 +1,4 @@
+import md5 from "md5";
 import { Suburb } from "./suburbs";
 import { suburbsAndTowns } from "./suburbs-and-towns.position";
 
@@ -348,7 +349,13 @@ const metroSuburbs = [
 const suburbMap = suburbsAndTowns
   .filter((suburb) => metroSuburbs.includes(suburb.name))
   .reduce<Record<string, Suburb>>(
-    (map, suburb) => ({ ...map, [suburb.name]: suburb }),
+    (map, suburb) => ({
+      ...map,
+      [suburb.name]: {
+        ...suburb,
+        code: md5(suburb.name.toUpperCase()),
+      },
+    }),
     {}
   );
 
