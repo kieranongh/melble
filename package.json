@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.16",
     "@types/luxon": "^2.0.9",
     "@types/md5": "^2.3.2",
     "@types/react-autosuggest": "^10.1.5",

@@ -9,10 +9,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { SettingsData } from "../hooks/useSettings";
 import { Twemoji } from "@teuteuf/react-emoji-render";
-import { Suburb, getSuburbName, sanitizeSuburbName } from "../domain/suburbs";
-import { areas } from "../domain/suburbs.area";
-import { suburbs } from "../domain/suburbs.position";
-import { useTranslation } from "react-i18next";
+import { Suburb } from "../domain/suburbs";
 
 const SQUARE_ANIMATION_LENGTH = 250;
 type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
@@ -30,29 +27,11 @@ export function GuessRow({
   settingsData,
   suburbInputRef,
 }: GuessRowProps) {
-  const { i18n } = useTranslation();
-  const { distanceUnit, theme } = settingsData;
+  const { theme } = settingsData;
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
   const squares = generateSquareCharacters(proximity, theme);
 
-  const guessedSuburb =
-    guess &&
-    suburbs.find(
-      (suburb) =>
-        sanitizeSuburbName(getSuburbName(i18n.resolvedLanguage, suburb)) ===
-        sanitizeSuburbName(guess.name)
-    );
-
-  const sizePercent =
-    targetSuburb &&
-    guessedSuburb &&
-    Math.min(
-      999,
-      Math.round((areas[targetSuburb.code] / areas[guessedSuburb.code]) * 100)
-    );
-
-  const percentToDisplay =
-    settingsData.showScale && sizePercent != null ? sizePercent : proximity;
+  const percentToDisplay = proximity;
 
   const [animationState, setAnimationState] =
     useState<AnimationState>("NOT_STARTED");
@@ -124,7 +103,7 @@ export function GuessRow({
             </p>
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal rounded">
-            {guess && formatDistance(guess.distance, distanceUnit)}
+            {guess && formatDistance(guess.distance)}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal rounded">
             {guess && <Twemoji text={getDirectionEmoji(guess)} />}

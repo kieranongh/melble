@@ -7,10 +7,9 @@ import { Panel } from "./Panel";
 interface StatsProps {
   isOpen: boolean;
   close: () => void;
-  distanceUnit: "km" | "miles";
 }
 
-export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
+export function Stats({ isOpen, close }: StatsProps) {
   const { t } = useTranslation();
   const {
     played,
@@ -33,7 +32,7 @@ export function Stats({ isOpen, close, distanceUnit }: StatsProps) {
       <div className="flex justify-center m-6">
         <div className="flex flex-col m-2">
           <p className="text-4xl font-bold text-center">
-            {formatDistance(averageBestDistance, distanceUnit)}
+            {formatDistance(averageBestDistance)}
           </p>
           <p className="text-lg text-center">
             {t("stats.averageBestDistance")}

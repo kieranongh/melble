@@ -44,9 +44,9 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           />
           <div className="my-2">
             Your guess <span className="uppercase font-bold">Melbourne</span> is{" "}
-            {formatDistance(8_000, settingsData.distanceUnit)} away from the
-            target location, the target location is in the Eastern direction and
-            you have 88% of proximity because it&apos;s relatively close.
+            {formatDistance(8_000)} away from the target location, the target
+            location is in the Eastern direction and you have 88% of proximity
+            because it&apos;s relatively close.
           </div>
         </div>
         <div>
@@ -64,8 +64,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           <div className="my-2">
             Your second guess{" "}
             <span className="uppercase font-bold">Malvern</span> is getting
-            closer! {formatDistance(4_000, settingsData.distanceUnit)} away,
-            Easterly direction and 94%!
+            closer! {formatDistance(4_000)} away, Easterly direction and 94%!
           </div>
         </div>
         <div>
@@ -125,11 +124,11 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           Melble variant made by{" "}
           <a
             className="underline"
-            href="https://twitter.com/azz"
+            href="https://twitter.com/lucasazzola"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @azz
+            @lucasazzola
           </a>
           . Originally made by{" "}
           <a

@@ -95,6 +95,11 @@ export function Game({ settingsData, updateSettings }: GameProps) {
 
       if (newGuess.distance === 0) {
         toast.success(t("welldone"), { delay: 2000 });
+
+        // eslint-disable-next-line
+        (window as any).gtag?.("event", "game_won", {
+          event_label: "Success",
+        });
       }
     },
     [addGuess, suburb, currentGuess, i18n.resolvedLanguage, t]
@@ -108,6 +113,11 @@ export function Game({ settingsData, updateSettings }: GameProps) {
       guesses.length === MAX_TRY_COUNT &&
       guesses[guesses.length - 1].distance > 0
     ) {
+      // eslint-disable-next-line
+      (window as any).gtag?.("event", "game_lost", {
+        event_label: "Fail",
+      });
+
       toastId = toast.info(
         getSuburbName(i18n.resolvedLanguage, suburb).toUpperCase(),
         {

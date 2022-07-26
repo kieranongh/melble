@@ -17,7 +17,6 @@ export const translations = {
       cancelRotation: "🌀 Cancel rotation",
       settings: {
         title: "Settings",
-        distanceUnit: "Unit of distance",
         theme: "Theme",
         language: "Language",
         difficultyModifiers: "Difficulty modifiers",
@@ -25,7 +24,6 @@ export const translations = {
         noImageMode: "Hide suburb image for more of a challenge.",
         rotationMode: "Randomly rotate suburb image.",
         updateNotificationDisabled: "Disable update notifications.",
-        showScale: "Replace proximity percent by size percent.",
       },
       stats: {
         title: "Statistics",
@@ -69,19 +67,18 @@ export const translations = {
   },
   fr: {
     translation: {
-      placeholder: "Pays, territoires...",
+      placeholder: "Banlieue de Melbourne...",
       guess: "Deviner",
       share: "Partager",
       showOnGoogleMaps: "👀 sur Google Maps",
       showOnWikipedia: "📚 sur Wikipedia",
       welldone: "Bien joué !",
-      unknownSuburb: "Pays inconnu !",
+      unknownSuburb: "Banlieue inconnu !",
       copy: "Résultat copié !",
       showSuburb: "🗺️ Afficher la carte !",
       cancelRotation: "🌀 Annule la rotation",
       settings: {
         title: "Paramètres",
-        distanceUnit: "Unité de distance",
         theme: "Thème",
         language: "Langage",
         difficultyModifiers: "Modificateurs de difficulté",
@@ -90,8 +87,6 @@ export const translations = {
         rotationMode: "Tourne l'image du pays de manière aléatoire.",
         updateNotificationDisabled:
           "Désactive les notification de mise à jour.",
-        showScale:
-          "Remplace le pourcentage de proximité par le pourcentage de taille.",
       },
       stats: {
         title: "Statistiques",
@@ -134,18 +129,17 @@ export const translations = {
   },
   es: {
     translation: {
-      placeholder: "País, Territorios...",
+      placeholder: "Suburbio de Melbourne...",
       guess: "Adivinar",
       share: "Compartir",
       showOnGoogleMaps: "👀 en Google Maps",
       welldone: "Bien hecho !",
-      unknownSuburb: "País desconocido !",
+      unknownSuburb: "Suburbio desconocido !",
       copy: "Resultado copiado !",
       showSuburb: "🗺️ mostrar mapa !",
       cancelRotation: "🌀 Anular la rotacíon",
       settings: {
         title: "Parámetros",
-        distanceUnit: "Unidad de distancia",
         theme: "Tema",
         difficultyModifiers: "Modificador de dificultad",
         startingNextDay: "A partir de mañana!",
@@ -166,19 +160,18 @@ export const translations = {
   },
   eu: {
     translation: {
-      placeholder: "Estatua, herrialdeak...",
+      placeholder: "Melbourneko auzoa...",
       guess: "Asmatu",
       share: "Elkarbanatu",
       showOnGoogleMaps: "👀 Google Maps-en",
       showOnWikipedia: "📚 Megtekintés Wikipédián",
       welldone: "Ongi egina !",
-      unknownSuburb: "Estatu ezezaguna !",
+      unknownSuburb: "Auzo ezezaguna !",
       copy: "Emaitzak arbelean kopiatuta !",
       showSuburb: "🗺️ Erakutsi mapan !",
       cancelRotation: "🌀 Ezeztatu errotazioa",
       settings: {
         title: "Aukerak",
-        distanceUnit: "Distantzia unitateak",
         theme: "Gaia",
         difficultyModifiers: "Zailtasun aldagaiak",
         startingNextDay: "Aldaketak bihartik aurrera ikusgai!",
@@ -199,19 +192,18 @@ export const translations = {
   },
   hu: {
     translation: {
-      placeholder: "Ország, terület...",
+      placeholder: "Melbourne külvárosában...",
       guess: "Tippelés",
       share: "Megosztás",
       showOnGoogleMaps: "👀 Google Maps-en",
       welldone: "Szép munka!",
-      unknownSuburb: "Ismeretlen ország!",
+      unknownSuburb: "Ismeretlen külváros!",
       suburbDuplication: "Már tippelted ezt az országot!",
       copy: "Eredmény kimásolva vágólapra",
       showSuburb: "🗺️ Mutasd a térképet!",
       cancelRotation: "🌀 Elforgatás kikapcsolása",
       settings: {
         title: "Beállítások",
-        distanceUnit: "Távolság mértékegysége",
         theme: "Téma",
         difficultyModifiers: "Nehézségi beállítások",
         startingNextDay: "A holnapi naptól!",
@@ -255,19 +247,18 @@ export const translations = {
   },
   nl: {
     translation: {
-      placeholder: "land, gebied...",
+      placeholder: "Buitenwijk van Melbourne...",
       guess: "Raden",
       share: "Delen",
       showOnGoogleMaps: "👀 op Google Maps",
       showOnWikipedia: "📚 op Wikipedia",
       welldone: "Goed gedaan!",
-      unknownSuburb: "Onbekend land!",
+      unknownSuburb: "Onbekend buitenwijk!",
       copy: "Resultaten zijn naar het klembord gekopiëerd",
       showSuburb: "🗺️ Toon kaart!",
       cancelRotation: "🌀 Stop met draaien",
       settings: {
         title: "Instellingen",
-        distanceUnit: "Afstandseenheid",
         theme: "Thema",
         difficultyModifiers: "Moeilijkheidsgraad instellen",
         startingNextDay: "Begint de volgende dag!",
@@ -311,19 +302,18 @@ export const translations = {
   },
   pl: {
     translation: {
-      placeholder: "Kraj, terytorium...",
+      placeholder: "Przedmieście Melbourne...",
       guess: "Zgadnij",
       share: "Udostępnij",
       showOnGoogleMaps: "👀 w Google Maps",
       showOnWikipedia: "📚 na Wikipedii",
       welldone: "Gratulacje!",
-      unknownSuburb: "Nieznane państwo!",
+      unknownSuburb: "Nieznane przedmieście!",
       copy: "Skopiowano wyniki do schowka",
       showSuburb: "🗺️ Pokaż mapę!",
       cancelRotation: "🌀 Anuluj obrót",
       settings: {
         title: "Ustawienia",
-        distanceUnit: "Jednostka odległości",
         theme: "Motyw",
         language: "Język",
         difficultyModifiers: "Modyfikatory trudności",
@@ -374,19 +364,18 @@ export const translations = {
   },
   pt: {
     translation: {
-      placeholder: "País, território...",
+      placeholder: "Subúrbio de Melbourne...",
       guess: "Adivinhar",
       share: "Compartilhar",
       showOnGoogleMaps: "👀 no Google Maps",
       showOnWikipedia: "📚 no Wikipedia",
       welldone: "Parabéns!",
-      unknownSuburb: "País desconhecido!",
+      unknownSuburb: "Subúrbio desconhecido!",
       copy: "Resultados copiados",
       showSuburb: "🗺️ Mostrar mapa!",
       cancelRotation: "🌀 Cancelar rotação",
       settings: {
         title: "Configurações",
-        distanceUnit: "Unidade de distância",
         theme: "Tema",
         language: "Idioma",
         difficultyModifiers: "Modificadores de dificuldade",
@@ -394,8 +383,6 @@ export const translations = {
         noImageMode: "Esconder imagem do país para maior dificuldade.",
         rotationMode: "Rotacionar imagem do país randomicamente.",
         updateNotificationDisabled: "Desativar notificações.",
-        showScale:
-          "Substitua percentual de proximidade por percentual de tamanho.",
       },
       stats: {
         title: "Estatísticas",
@@ -440,19 +427,18 @@ export const translations = {
   },
   de: {
     translation: {
-      placeholder: "Land, Territorium...",
+      placeholder: "Vorort von Melbourne...",
       guess: "Raten",
       share: "Teilen",
       showOnGoogleMaps: "👀 auf Google Maps",
       showOnWikipedia: "📚 auf Wikipedia",
       welldone: "Sehr gut!",
-      unknownSuburb: "Unbekanntes Land!",
+      unknownSuburb: "Unbekannter Vorort!",
       copy: "Ergebnis in Zwischenablage kopiert!",
       showSuburb: "🗺️ Karte zeigen!",
       cancelRotation: "🌀 Rotation abbrechen",
       settings: {
         title: "Einstellungen",
-        distanceUnit: "Entfernungseinheit",
         theme: "Thema",
         language: "Sprache",
         difficultyModifiers: "Schwierigkeits Einstellungen",
@@ -460,7 +446,6 @@ export const translations = {
         noImageMode: "Umriss verbergen für eine größere Herausforderung.",
         rotationMode: "Umrisse zufällig drehen.",
         updateNotificationDisabled: "Update Benachrichtigung deaktivieren.",
-        showScale: "Prozentuale Größe anstelle von prozentualer Entfernung.",
       },
       stats: {
         title: "Statistiken",
@@ -505,19 +490,18 @@ export const translations = {
   },
   ja: {
     translation: {
-      placeholder: "国名、地域名",
+      placeholder: "メルボルン郊外...",
       guess: "回答する",
       share: "シェア",
       showOnGoogleMaps: "👀 Google マップで見る",
       showOnWikipedia: "📚 Wikipediaで見る",
       welldone: "正解です！",
-      unknownSuburb: "その国名、地域名は無効です",
+      unknownSuburb: "その郊外は無効です",
       copy: "結果をクリップボードにコピーしました",
       showSuburb: "🗺️ 地図を表示する",
       cancelRotation: "🌀 地図の回転を元に戻す",
       settings: {
         title: "設定",
-        distanceUnit: "距離の単位",
         theme: "テーマ",
         language: "言語",
         difficultyModifiers: "難易度調整",
@@ -525,7 +509,6 @@ export const translations = {
         noImageMode: "地図を表示しないで挑戦する",
         rotationMode: "地図をランダムに回転させる",
         updateNotificationDisabled: "更新通知を無効にする",
-        showScale: "距離の近さ（%）の代わりに国土面積の違い（%）を表示する",
       },
       stats: {
         title: "統計",
@@ -569,19 +552,18 @@ export const translations = {
   },
   co: {
     translation: {
-      placeholder: "Paese o territoriu…",
+      placeholder: "Suburbiu di Melbourne...",
       guess: "Induvinà",
       share: "Sparte",
       showOnGoogleMaps: "👀 nant’à Google Maps",
       showOnWikipedia: "📚 nant’à Wikipedia",
       welldone: "Bellu colpu !",
-      unknownSuburb: "Paese scunnisciutu !",
+      unknownSuburb: "Quartier inconnu!",
       copy: "Risultati cupiati in u preme’papei",
       showSuburb: "🗺️ Affissà a cartugrafia !",
       cancelRotation: "🌀 Annullà a rutazione",
       settings: {
         title: "Preferenze",
-        distanceUnit: "Unità di distanza",
         theme: "Tema",
         language: "Lingua",
         difficultyModifiers: "Mudificatori di sforzu",
@@ -590,8 +572,6 @@ export const translations = {
         rotationMode: "Face girà à l’azardu a fiura di u paese.",
         updateNotificationDisabled:
           "Disattiveghja e mudificazioni di messa à livellu.",
-        showScale:
-          "Rimpiazzeghja u percentuale di vicinanza da quellu di dimensione.",
       },
       stats: {
         title: "Statistiche",

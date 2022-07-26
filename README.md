@@ -1,23 +1,9 @@
 # ME**L**B**L**E
 
-Play this geographical Melble here: https://melble.netlify.app!
-
-## Contributions & PR
-
-Even if there are many more users than I could ever imagine on Worldle, it was originally a small pet project that I started in order to  practice code and have fun.
-
-So, I prefer to continue to manage it personally and do all the design and the code by myself.  :)
-
-Therefore, I'm not looking for contributors or PR! I could accept PR for specific things, for instance to add support for your native language or to fix something, but please, don't hesitate to contact me first!
-
-If you'd like to make a suggestion, don't hesitate to open an issue!
-
-Otherwise, feel free to fork the project, customize it and play with it on your side! <3
+Play the Melble game here: https://melble.netlify.app!
 
 ## Resources used:
 
-- Countries with long/lat => https://developers.google.com/public-data/docs/canonical/countries_csv
-- Country area => https://github.com/samayo/suburb-json/blob/master/src/country-by-surface-area.json
-- Country images => https://github.com/djaiss/mapsicon
-- Fixed images => http://www.amcharts.com/svg-maps/ & Wikipedia
+- Suburb list: https://www.jetpunk.com/user-quizzes/150455/melbourne-suburbs/stats
+- Coordinates: Google Geocoding API
 - Emojis & World icon => https://github.com/twitter/twemoji
