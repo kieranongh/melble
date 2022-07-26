@@ -221,7 +221,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
               </a>
               <a
                 className="underline text-center block mt-4 whitespace-nowrap"
-                href={`https://${i18n.resolvedLanguage}.wikipedia.org/wiki/${suburbName}`}
+                href={`https://${i18n.resolvedLanguage}.wikipedia.org/wiki/${suburbName},_Victoria`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -60,7 +60,7 @@ export function Share({
       })
       .join("\n");
 
-    return [title, guessString, "https://melble.netlify.com"].join("\n");
+    return [title, guessString, "https://melble.netlify.app"].join("\n");
   }, [dayString, guesses, hideImageMode, rotationMode, theme]);
 
   return (

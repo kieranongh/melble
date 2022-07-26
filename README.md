@@ -1,6 +1,6 @@
 # ME**L**B**L**E
 
-Play this geographical Melble here: https://melble.netlify.com!
+Play this geographical Melble here: https://melble.netlify.app!
 
 ## Contributions & PR
 
