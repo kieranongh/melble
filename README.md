@@ -1,6 +1,6 @@
 # ME**L**B**L**E
 
-Play the Melble game here: https://melble.netlify.app!
+Play the Melble game here: https://melble.azzola.dev!
 
 ## Resources used:
 
