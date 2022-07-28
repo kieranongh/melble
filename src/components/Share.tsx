@@ -1,4 +1,3 @@
-import { DateTime, Interval } from "luxon";
 import { useMemo } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useTranslation } from "react-i18next";
@@ -11,8 +10,7 @@ import {
 import { Guess } from "../domain/guess";
 import React from "react";
 import { SettingsData } from "../hooks/useSettings";
-
-const START_DATE = DateTime.fromISO("2022-07-26");
+import { bestGuessPercent, dayCount } from "../domain/guessStats";
 
 interface ShareProps {
   guesses: Guess[];
@@ -34,22 +32,16 @@ export function Share({
 
   const shareText = useMemo(() => {
     const win = guesses[guesses.length - 1]?.distance === 0;
-    const bestDistance = Math.min(...guesses.map(({ distance }) => distance));
     const guessCount = win ? guesses.length : "X";
-    const dayCount = Math.floor(
-      Interval.fromDateTimes(START_DATE, DateTime.fromISO(dayString)).length(
-        "day"
-      )
-    );
     const difficultyModifierEmoji = hideImageMode
       ? " 🙈"
       : rotationMode
       ? " 🌀"
       : "";
-    const bestPercent = `(${computeProximityPercent(
-      bestDistance
-    ).toString()}%)`;
-    const title = `#melble #${dayCount} ${guessCount}/6 ${bestPercent}${difficultyModifierEmoji}`;
+    const bestPercent = `(${bestGuessPercent(guesses).toString()}%)`;
+    const title = `#melble #${dayCount(
+      dayString
+    )} ${guessCount}/6 ${bestPercent}${difficultyModifierEmoji}`;
 
     const guessString = guesses
       .map((guess) => {

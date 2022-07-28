@@ -1,11 +1,4 @@
-import React, {
-  ReactText,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { ReactText, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { getSuburbName, sanitizeSuburbName } from "../domain/suburbs";
 import { SuburbInput } from "./SuburbInput";
@@ -19,6 +12,8 @@ import { getDayString, useTodays } from "../hooks/useTodays";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 import { suburbs } from "../domain/suburbs.position";
 import { useNewsNotifications } from "../hooks/useNewsNotifications";
+import { event } from "../domain/analytics";
+import { bestGuessPercent, dayCount } from "../domain/guessStats";
 
 const ENABLE_TWITCH_LINK = false;
 const MAX_TRY_COUNT = 6;
@@ -62,48 +57,49 @@ export function Game({ settingsData, updateSettings }: GameProps) {
     guesses.length === MAX_TRY_COUNT ||
     guesses[guesses.length - 1]?.distance === 0;
 
-  const handleSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      if (suburb == null) {
-        return;
-      }
-      e.preventDefault();
-      const guessedSuburb = suburbs.find(
-        (suburb) =>
-          sanitizeSuburbName(getSuburbName(i18n.resolvedLanguage, suburb)) ===
-          sanitizeSuburbName(currentGuess)
-      );
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (suburb == null) {
+      return;
+    }
+    e.preventDefault();
+    const guessedSuburb = suburbs.find(
+      (suburb) =>
+        sanitizeSuburbName(getSuburbName(i18n.resolvedLanguage, suburb)) ===
+        sanitizeSuburbName(currentGuess)
+    );
 
-      if (guessedSuburb == null) {
-        toast.error(t("unknownSuburb"));
-        return;
-      }
+    if (guessedSuburb == null) {
+      toast.error(t("unknownSuburb"));
+      return;
+    }
 
-      const newGuess = {
-        name: currentGuess,
-        distance: geolib.getDistance(guessedSuburb, suburb),
-        direction: geolib.getCompassDirection(
-          guessedSuburb,
-          suburb,
-          (origin, dest) =>
-            Math.round(geolib.getRhumbLineBearing(origin, dest) / 45) * 45
-        ),
-      };
+    const newGuess = {
+      name: currentGuess,
+      distance: geolib.getDistance(guessedSuburb, suburb),
+      direction: geolib.getCompassDirection(
+        guessedSuburb,
+        suburb,
+        (origin, dest) =>
+          Math.round(geolib.getRhumbLineBearing(origin, dest) / 45) * 45
+      ),
+    };
 
-      addGuess(newGuess);
-      setCurrentGuess("");
+    if (guesses.length === 0) {
+      event("level_start", { level_name: `#${dayCount(dayString)}` });
+    }
 
-      if (newGuess.distance === 0) {
-        toast.success(t("welldone"), { delay: 2000 });
+    addGuess(newGuess);
+    setCurrentGuess("");
 
-        // eslint-disable-next-line
-        (window as any).gtag?.("event", "game_won", {
-          event_label: "Success",
-        });
-      }
-    },
-    [addGuess, suburb, currentGuess, i18n.resolvedLanguage, t]
-  );
+    if (newGuess.distance === 0) {
+      toast.success(t("welldone"), { delay: 2000 });
+
+      const level = dayCount(dayString);
+      event("game_won", { level, event_label: "Success" });
+      event("level_end", { level, success: true });
+      event("post_score", { level, score: 100 });
+    }
+  };
 
   useEffect(() => {
     let toastId: ReactText;
@@ -113,10 +109,10 @@ export function Game({ settingsData, updateSettings }: GameProps) {
       guesses.length === MAX_TRY_COUNT &&
       guesses[guesses.length - 1].distance > 0
     ) {
-      // eslint-disable-next-line
-      (window as any).gtag?.("event", "game_lost", {
-        event_label: "Fail",
-      });
+      const level = dayCount(dayString);
+      event("game_lost", { level, event_label: "Fail" });
+      event("level_end", { level_name: `#${level}`, success: false });
+      event("post_score", { level, score: bestGuessPercent(guesses) });
 
       toastId = toast.info(
         getSuburbName(i18n.resolvedLanguage, suburb).toUpperCase(),
@@ -132,7 +128,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
         toast.dismiss(toastId);
       }
     };
-  }, [todays, i18n.resolvedLanguage]);
+  }, [todays, dayString, i18n.resolvedLanguage]);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
