@@ -96,7 +96,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
 
       const level = dayCount(dayString);
       event("game_won", { level, event_label: "Success" });
-      event("level_end", { level, success: true });
+      event("level_end", { level_name: `#${level}`, success: true });
       event("post_score", { level, score: 100 });
     }
   };
