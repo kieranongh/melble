@@ -24,11 +24,8 @@ interface GameProps {
 
 export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
   const { t, i18n } = useTranslation();
-  const [shiftDayCount, setShiftDayCount] = useState(0)
-  const dayString = useMemo(
-    () => getDayString(shiftDayCount),
-    [shiftDayCount]
-  );
+  const [shiftDayCount, setShiftDayCount] = useState(0);
+  const dayString = useMemo(() => getDayString(shiftDayCount), [shiftDayCount]);
 
   useNewsNotifications(dayString);
 
@@ -58,9 +55,9 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
     guesses[guesses.length - 1]?.distance === 0;
 
   const handleReset = () => {
-    console.log('Resetting')
-    setShiftDayCount(Math.floor(Math.random() * suburbs.length))
-  }
+    console.log("Resetting");
+    setShiftDayCount(Math.floor(Math.random() * suburbs.length));
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (suburb == null) {
@@ -153,9 +150,7 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
         {settingsData.allowShiftingDay && (
           <button
             type="button"
-            onClick={() =>
-              setShiftDayCount(shiftDayCount - 1)
-            }
+            onClick={() => setShiftDayCount(shiftDayCount - 1)}
           >
             <Twemoji text="↪️" className="text-xl" />
           </button>
@@ -177,9 +172,7 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
         {settingsData.allowShiftingDay && (
           <button
             type="button"
-            onClick={() =>
-              setShiftDayCount(shiftDayCount + 1)
-            }
+            onClick={() => setShiftDayCount(shiftDayCount + 1)}
           >
             <Twemoji text="↩️" className="text-xl" />
           </button>
@@ -209,7 +202,8 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
           <>
             <button
               className="rounded font-bold border-2 p-1 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full"
-              onClick={handleReset}>
+              onClick={handleReset}
+            >
               {t("reset")}
             </button>
             <div className="flex flex-wrap gap-4 justify-center">

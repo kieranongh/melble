@@ -79,7 +79,11 @@ export default function App() {
               <Twemoji text="⚙️" />
             </button>
           </header>
-          <Game settingsData={settingsData} updateSettings={updateSettings} maxGuesses={MAX_TRY_COUNT}/>
+          <Game
+            settingsData={settingsData}
+            updateSettings={updateSettings}
+            maxGuesses={MAX_TRY_COUNT}
+          />
         </div>
       </div>
     </>
