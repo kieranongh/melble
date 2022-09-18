@@ -10,14 +10,15 @@ interface InfosProps {
   isOpen: boolean;
   close: () => void;
   settingsData: SettingsData;
+  maxGuesses: number;
 }
 
-export function Infos({ isOpen, close, settingsData }: InfosProps) {
+export function Infos({ isOpen, close, settingsData, maxGuesses }: InfosProps) {
   return (
     <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the <Melble /> in 6 guesses.
+          Guess the <Melble /> in {maxGuesses} guesses.
         </div>
         <div>
           Each guess must be a valid suburb of Melbourne (not including

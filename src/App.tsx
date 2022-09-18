@@ -8,6 +8,8 @@ import { useSettings } from "./hooks/useSettings";
 import { Stats } from "./components/panels/Stats";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 
+const MAX_TRY_COUNT = 20;
+
 export default function App() {
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -39,6 +41,7 @@ export default function App() {
         isOpen={infoOpen}
         close={() => setInfoOpen(false)}
         settingsData={settingsData}
+        maxGuesses={MAX_TRY_COUNT}
       />
       <Settings
         isOpen={settingsOpen}
@@ -76,7 +79,7 @@ export default function App() {
               <Twemoji text="⚙️" />
             </button>
           </header>
-          <Game settingsData={settingsData} updateSettings={updateSettings} />
+          <Game settingsData={settingsData} updateSettings={updateSettings} maxGuesses={MAX_TRY_COUNT}/>
         </div>
       </div>
     </>

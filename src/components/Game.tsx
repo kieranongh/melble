@@ -16,14 +16,14 @@ import { event } from "../domain/analytics";
 import { bestGuessPercent, dayCount } from "../domain/guessStats";
 
 const ENABLE_TWITCH_LINK = false;
-const MAX_TRY_COUNT = 6;
 
 interface GameProps {
   settingsData: SettingsData;
   updateSettings: (newSettings: Partial<SettingsData>) => void;
+  maxGuesses: number;
 }
 
-export function Game({ settingsData, updateSettings }: GameProps) {
+export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
   const { t, i18n } = useTranslation();
   const dayString = useMemo(
     () => getDayString(settingsData.shiftDayCount),
@@ -54,7 +54,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
   );
 
   const gameEnded =
-    guesses.length === MAX_TRY_COUNT ||
+    guesses.length === maxGuesses ||
     guesses[guesses.length - 1]?.distance === 0;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -106,7 +106,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
     const { suburb, guesses } = todays;
     if (
       suburb &&
-      guesses.length === MAX_TRY_COUNT &&
+      guesses.length === maxGuesses &&
       guesses[guesses.length - 1].distance > 0
     ) {
       const level = dayCount(dayString);
@@ -128,7 +128,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
         toast.dismiss(toastId);
       }
     };
-  }, [todays, dayString, i18n.resolvedLanguage]);
+  }, [todays, dayString, i18n.resolvedLanguage, maxGuesses]);
 
   return (
     <div className="flex-grow flex flex-col mx-2">
@@ -198,7 +198,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
       )}
       <Guesses
         targetSuburb={suburb}
-        rowCount={MAX_TRY_COUNT}
+        rowCount={guesses.length}
         guesses={guesses}
         settingsData={settingsData}
         suburbInputRef={suburbInputRef}
