@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 import { getSuburbName, sanitizeSuburbName } from "../domain/suburbs";
 import { SuburbInput } from "./SuburbInput";
 import * as geolib from "geolib";
-import { Share } from "./Share";
 import { Guesses } from "./Guesses";
 import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
@@ -25,9 +24,10 @@ interface GameProps {
 
 export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
   const { t, i18n } = useTranslation();
+  const [shiftDayCount, setShiftDayCount] = useState(0)
   const dayString = useMemo(
-    () => getDayString(settingsData.shiftDayCount),
-    [settingsData.shiftDayCount]
+    () => getDayString(shiftDayCount),
+    [shiftDayCount]
   );
 
   useNewsNotifications(dayString);
@@ -56,6 +56,11 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
   const gameEnded =
     guesses.length === maxGuesses ||
     guesses[guesses.length - 1]?.distance === 0;
+
+  const handleReset = () => {
+    console.log('Resetting')
+    setShiftDayCount(Math.floor(Math.random() * suburbs.length))
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (suburb == null) {
@@ -145,13 +150,11 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
         </button>
       )}
       <div className="flex my-1">
-        {settingsData.allowShiftingDay && settingsData.shiftDayCount > 0 && (
+        {settingsData.allowShiftingDay && (
           <button
             type="button"
             onClick={() =>
-              updateSettings({
-                shiftDayCount: Math.max(0, settingsData.shiftDayCount - 1),
-              })
+              setShiftDayCount(shiftDayCount - 1)
             }
           >
             <Twemoji text="↪️" className="text-xl" />
@@ -171,13 +174,11 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
               : {}
           }
         />
-        {settingsData.allowShiftingDay && settingsData.shiftDayCount < 7 && (
+        {settingsData.allowShiftingDay && (
           <button
             type="button"
             onClick={() =>
-              updateSettings({
-                shiftDayCount: Math.min(7, settingsData.shiftDayCount + 1),
-              })
+              setShiftDayCount(shiftDayCount + 1)
             }
           >
             <Twemoji text="↩️" className="text-xl" />
@@ -206,13 +207,11 @@ export function Game({ settingsData, updateSettings, maxGuesses }: GameProps) {
       <div className="my-2">
         {gameEnded && suburb ? (
           <>
-            <Share
-              guesses={guesses}
-              dayString={dayString}
-              settingsData={settingsData}
-              hideImageMode={hideImageMode}
-              rotationMode={rotationMode}
-            />
+            <button
+              className="rounded font-bold border-2 p-1 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full"
+              onClick={handleReset}>
+              {t("reset")}
+            </button>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
                 className="underline text-center block mt-4 whitespace-nowrap"

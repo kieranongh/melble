@@ -8,6 +8,7 @@ export const translations = {
       placeholder: "Suburb of Greater Melbourne...",
       guess: "Guess",
       share: "Share",
+      reset: "Reset",
       showOnGoogleMaps: "👀 on Google Maps",
       showOnWikipedia: "📚 on Wikipedia",
       welldone: "Well done!",
